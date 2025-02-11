@@ -14,6 +14,7 @@ private slots:
     void test_subtract();
     void test_multiply();
     void test_divide();
+    void test_power();
 };
 
 TestOperations::TestOperations() {}
@@ -63,6 +64,17 @@ void TestOperations::test_divide()
     double result = operation->exec(10, 5);
     delete operation;
     QCOMPARE(result, 2);
+}
+
+void TestOperations::test_power()
+{
+    OperationFactory factory = OperationFactory::getInstance();
+    IOperation *operation = factory.getOperation(POWER);
+    QVERIFY2(operation != nullptr, "Power operation should not be null");
+
+    double result = operation->exec(2, 3);
+    delete operation;
+    QCOMPARE(result, 8);
 }
 
 QTEST_APPLESS_MAIN(TestOperations)

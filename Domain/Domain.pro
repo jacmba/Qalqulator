@@ -14,6 +14,7 @@ SOURCES += \
     division.cpp \
     multiplication.cpp \
     operationfactory.cpp \
+    power.cpp \
     subtraction.cpp
 
 HEADERS += \
@@ -22,6 +23,7 @@ HEADERS += \
     multiplication.h \
     operation.h \
     operationfactory.h \
+    power.h \
     subtraction.h
 
 # Default rules for deployment.

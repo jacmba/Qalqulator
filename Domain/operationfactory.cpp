@@ -3,6 +3,7 @@
 #include "subtraction.h"
 #include "multiplication.h"
 #include "division.h"
+#include "power.h"
 
 OperationFactory::OperationFactory() {}
 
@@ -22,6 +23,8 @@ IOperation* OperationFactory::getOperation(OperationType op)
         return new Multiplication();
     case DIVIDE:
         return new Division();
+    case POWER:
+        return new Power();
     default:
         return nullptr;
     }

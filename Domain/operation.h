@@ -5,7 +5,8 @@ enum OperationType {
     ADD,
     SUBTRACT,
     MULTIPLY,
-    DIVIDE
+    DIVIDE,
+    POWER
 };
 
 class IOperation

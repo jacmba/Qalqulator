@@ -36,7 +36,7 @@ QPushButton {
 	max-width: 50px;
 	max-height: 50px;
 	background-color: rgb(94, 92, 100);
-	border: 1px solid rgb(61, 56, 70);
+	border: 2px solid rgb(61, 56, 70);
 	border-radius: 25px;
 	font-weight: bold;
 	color: rgb(255, 255, 255);
@@ -45,6 +45,19 @@ QPushButton {
 
 QPushButton:hover {
 	background-color: rgb(119, 118, 123);
+}
+
+QPushButton[operator=&quot;true&quot;] {
+	background-color: rgb(36, 31, 49);
+}
+
+QPushButton[operator=&quot;true&quot;]:hover {
+	background-color: rgb(94, 92, 100);
+}
+
+QPushButton:pressed {
+	background-color: rgb(153, 193, 241);
+	border: 3px solid rgb(53, 132, 228);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -72,7 +85,7 @@ QPushButton:hover {
       <x>20</x>
       <y>120</y>
       <width>400</width>
-      <height>512</height>
+      <height>522</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="numbersLayout">
@@ -83,6 +96,9 @@ QPushButton:hover {
       <widget class="QPushButton" name="buttonMultiply">
        <property name="text">
         <string>x</string>
+       </property>
+       <property name="operator" stdset="0">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -140,6 +156,9 @@ QPushButton:hover {
        <property name="text">
         <string>=</string>
        </property>
+       <property name="operator" stdset="0">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item row="2" column="0">
@@ -171,6 +190,9 @@ QPushButton:hover{
       <widget class="QPushButton" name="buttonSubtract">
        <property name="text">
         <string>-</string>
+       </property>
+       <property name="operator" stdset="0">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -216,12 +238,18 @@ QPushButton:hover{
        <property name="text">
         <string>+</string>
        </property>
+       <property name="operator" stdset="0">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item row="1" column="4">
       <widget class="QPushButton" name="buttonDivide">
        <property name="text">
         <string>/</string>
+       </property>
+       <property name="operator" stdset="0">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -241,6 +269,72 @@ QPushButton:hover {
        </property>
       </widget>
      </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="buttonSqrt">
+       <property name="text">
+        <string>√</string>
+       </property>
+       <property name="operator" stdset="0">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="buttonSquare">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	font-style: italic;
+}</string>
+       </property>
+       <property name="text">
+        <string>x²</string>
+       </property>
+       <property name="operator" stdset="0">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QWidget" name="powContainer" native="true">
+       <widget class="QPushButton" name="buttonPower">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>54</width>
+          <height>54</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="operator" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="powerLabel">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>7</y>
+          <width>41</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 700 14pt &quot;Ubuntu Sans&quot;;
+	qproperty-alignment: 'AlignCenter';
+	background: transparent;
+	font-style: italic;
+}</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span&gt;X&lt;/span&gt;&lt;span style=&quot; vertical-align:super;&quot;&gt;y&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QLabel" name="lcdLabel">
@@ -254,7 +348,7 @@ QPushButton:hover {
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel {
-	border: 2pt solid black;
+	border: 2px solid rgb(36, 31, 49);
 	background-color: rgb(181, 131, 90);
 	color: rgb(0, 0, 0);
 	font: 700 24pt &quot;Noto Sans Symbols&quot;;

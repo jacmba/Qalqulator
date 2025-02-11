@@ -11,6 +11,8 @@ public:
 
     void setOperation(OperationType opType, const double &op);
     double calculate(double op);
+    double calculateSquare(double op);
+    double calculateSqrt(double op);
 
 private:
     IOperation *operation;

@@ -1,4 +1,5 @@
 #include "calculator.h"
+#include <cmath>
 
 Calculator::Calculator() {
     operation = nullptr;
@@ -25,6 +26,16 @@ double Calculator::calculate(double op)
     }
 
     return operation->exec(operand, op);
+}
+
+double Calculator::calculateSquare(double op)
+{
+    return op * op;
+}
+
+double Calculator::calculateSqrt(double op)
+{
+    return std::sqrt(op);
 }
 
 void Calculator::clearOperation()

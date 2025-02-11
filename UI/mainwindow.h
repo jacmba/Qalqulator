@@ -37,5 +37,7 @@ private slots:
     void onCalculateClick();
     void onClearClick();
     void onAboutClick();
+    void onSquareClick();
+    void onSqrtClick();
 };
 #endif // MAINWINDOW_H

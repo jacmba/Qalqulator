@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    // Setup UI
     resulted = false;
 
     ui->setupUi(this);
@@ -15,8 +16,11 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     setFixedSize(this->size());
 
+    // Connect actions
+
     connect(ui->exitButton, SIGNAL(clicked()), SLOT(onExitClick()));
 
+    // Numbers actions mapping
     QList<QPushButton*> numberButtons = {
         ui->button0,
         ui->button1,
@@ -44,11 +48,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->buttonDot, SIGNAL(clicked()), SLOT(onDotClick()));
 
+    // Disable mouse events for button labels
+    ui->powerLabel->setAttribute(Qt::WA_TransparentForMouseEvents);
+
+    // Binary operations connection mapping
     opMap = {
         {ADD, ui->buttonAdd},
         {SUBTRACT, ui->buttonSubtract},
         {MULTIPLY, ui->buttonMultiply},
-        {DIVIDE, ui->buttonDivide}
+        {DIVIDE, ui->buttonDivide},
+        {POWER, ui->buttonPower}
     };
 
     for (auto it = opMap.constBegin(); it != opMap.constEnd(); ++it) {
@@ -59,6 +68,11 @@ MainWindow::MainWindow(QWidget *parent)
         });
     }
 
+    // Unary operations button connections
+    connect(ui->buttonSquare, SIGNAL(clicked()), SLOT(onSquareClick()));
+    connect(ui->buttonSqrt, SIGNAL(clicked()), SLOT(onSqrtClick()));
+
+    // Action buttons connections
     connect(ui->buttonCalc, SIGNAL(clicked()), SLOT(onCalculateClick()));
 
     connect(ui->clearButton, SIGNAL(clicked()), SLOT(onClearClick()));
@@ -116,4 +130,18 @@ void MainWindow::onAboutClick()
     content += "Copyleft Jacinto Mba 2025";
 
     QMessageBox::about(this, "About Qalqulator", content);
+}
+
+void MainWindow::onSquareClick()
+{
+    double result = calculator.calculateSquare(lcd.getNumber());
+    lcd.setNumber(result);
+    updateLcd();
+}
+
+void MainWindow::onSqrtClick()
+{
+    double result = calculator.calculateSqrt(lcd.getNumber());
+    lcd.setNumber(result);
+    updateLcd();
 }
