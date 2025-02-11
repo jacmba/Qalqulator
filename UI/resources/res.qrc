@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/images">
         <file>onoff.png</file>
+        <file>logo.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>Open 24 Display St.ttf</file>
