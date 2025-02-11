@@ -351,7 +351,7 @@ QPushButton:hover {
 	border: 2px solid rgb(36, 31, 49);
 	background-color: rgb(181, 131, 90);
 	color: rgb(0, 0, 0);
-	font: 700 24pt &quot;Noto Sans Symbols&quot;;
+	font: 24pt;
 	padding: 5px;
 }</string>
     </property>

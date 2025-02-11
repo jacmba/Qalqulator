@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QFontDatabase>
 #include <QList>
 #include <QMap>
 #include <QMessageBox>
@@ -15,6 +16,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     setFixedSize(this->size());
+
+    // Set LCD font
+    int geekFont = QFontDatabase::addApplicationFont(":/fonts/Open 24 Display St.ttf");
+    QString geekFamily = QFontDatabase::applicationFontFamilies(geekFont).at(0);
+    ui->lcdLabel->setFont(QFont(geekFamily));
 
     // Connect actions
 
@@ -129,7 +135,7 @@ void MainWindow::onAboutClick()
     content += "\n";
     content += "Copyleft Jacinto Mba 2025";
 
-    QMessageBox::about(this, "About Qalqulator", content);
+    QMessageBox::about(nullptr, "About Qalqulator", content);
 }
 
 void MainWindow::onSquareClick()
